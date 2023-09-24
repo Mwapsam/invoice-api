@@ -1,0 +1,6 @@
+2023-09-24 10:30:30.935 CAT [83396] LOG:  starting PostgreSQL 14.7 (Homebrew) on x86_64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2023-09-24 10:30:30.939 CAT [83396] LOG:  listening on IPv6 address "::1", port 5432
+2023-09-24 10:30:30.939 CAT [83396] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-09-24 10:30:30.939 CAT [83396] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-09-24 10:30:30.950 CAT [83397] LOG:  database system was shut down at 2023-09-24 10:30:22 CAT
+2023-09-24 10:30:30.958 CAT [83396] LOG:  database system is ready to accept connections

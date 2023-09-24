@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  due_date: 2023-09-24
+  send_immediately: false
+  allow_partial_payments: false
+  delivery_mode: MyString
+  customer_id: 1
+
+two:
+  description: MyString
+  due_date: 2023-09-24
+  send_immediately: false
+  allow_partial_payments: false
+  delivery_mode: MyString
+  customer_id: 1

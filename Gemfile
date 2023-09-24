@@ -46,3 +46,6 @@ group :development do
   # gem "spring"
 end
 
+# Project specific gems
+gem 'cybersource_rest_client'
+
