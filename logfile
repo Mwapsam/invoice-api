@@ -4,3 +4,19 @@
 2023-09-24 10:30:30.939 CAT [83396] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2023-09-24 10:30:30.950 CAT [83397] LOG:  database system was shut down at 2023-09-24 10:30:22 CAT
 2023-09-24 10:30:30.958 CAT [83396] LOG:  database system is ready to accept connections
+2023-09-24 20:37:39.004 CAT [50404] ERROR:  column "email" of relation "customers" already exists
+2023-09-24 20:37:39.004 CAT [50404] STATEMENT:  ALTER TABLE "customers" ADD "email" character varying
+2023-09-25 08:59:19.458 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2023-09-25 08:59:19.462 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2023-09-25 08:59:30.386 CAT [83401] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2023-09-25 08:59:30.396 CAT [83402] LOG:  could not write temporary statistics file "pg_stat_tmp/db_14042.tmp": No space left on device
+2023-09-25 08:59:30.417 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2023-09-25 08:59:30.417 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2023-09-25 08:59:41.470 CAT [50684] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2023-09-25 08:59:49.200 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2023-09-25 08:59:49.201 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2023-09-25 09:00:00.775 CAT [83401] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2023-09-25 09:00:00.821 CAT [83402] LOG:  could not write temporary statistics file "pg_stat_tmp/db_16384.tmp": No space left on device
+2023-09-25 09:00:00.830 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2023-09-25 09:00:00.830 CAT [83402] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2023-09-25 09:00:11.793 CAT [50956] LOG:  using stale statistics instead of current ones because stats collector is not responding
