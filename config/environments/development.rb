@@ -64,5 +64,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { :api_token => Rails.application.credentials.postmark[:api_key] }
-  config.action_mailer.default_url_options ={:host => 'mwape.org', :protocol => 'https'}
+  config.action_mailer.default_url_options ={:host => 'tunespot.biz', :protocol => 'https'}
 end

@@ -27,12 +27,10 @@ class WhatsappService
 
     response = http.request(request)
 
-    if response.is_a?(Net::HTTPSuccess)
-      return { success: true, message: 'WhatsApp message sent successfully' }
-    else
-      return { success: false, error: 'Failed to send WhatsApp message' }
-    end
+    return { success: true, message: 'WhatsApp message sent successfully' } if response.is_a?(Net::HTTPSuccess)
+
+    { success: false, error: 'Failed to send WhatsApp message' }
   rescue StandardError => e
-    return { success: false, error: e.message }
+    { success: false, error: e.message }
   end
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mode: MyString
+  paid_to: MyString
+  invoice: one
+  customer: one
+
+two:
+  mode: MyString
+  paid_to: MyString
+  invoice: two
+  customer: two

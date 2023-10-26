@@ -7,18 +7,18 @@ class Api::V1::CustomersController < ApplicationController
   end
 
   def create
-      customer_params = params.require(:customer).permit(
-          :email,
-          :first_name,
-          :last_name,
-          :address1,
-          :locality,
-          :administrative_area,
-          :postal_code,
-          :country,
-          :phone_number
-        )          
-    
+    customer_params = params.require(:customer).permit(
+      :email,
+      :first_name,
+      :last_name,
+      :address1,
+      :city,
+      :state,
+      :postal_code,
+      :country,
+      :phone_number
+    )
+
     customer = @current_user.customers.new(customer_params)
 
     if customer.save
@@ -29,4 +29,3 @@ class Api::V1::CustomersController < ApplicationController
     end
   end
 end
-  

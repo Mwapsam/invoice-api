@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       resources :invoices do
         collection do
           post :send_invoice
+          get :load_invoices
+        end
+        member do
+          get 'one_invoice/:token', action: :one_invoice
         end
       end
       resources :customers
@@ -13,8 +17,17 @@ Rails.application.routes.draw do
           get :signed_user
         end
       end
-      resources :sessions
+      resources :sessions do
+        collection do
+          post :single_session
+        end
+      end
       resources :audit_logs
+      resources :payments do
+        collection do
+          post :send_money
+        end
+      end
     end
   end
 end
