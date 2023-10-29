@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       resources :users do
         collection do
           get :signed_user
+          post :debit_card
+          get :list_payment_methods
         end
       end
       resources :sessions do
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
           post :send_money
         end
       end
+      resources :people
     end
   end
 end

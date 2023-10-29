@@ -47,14 +47,14 @@ group :development do
 end
 
 # Project specific gems
-gem 'cybersource_rest_client'
-gem 'will_paginate'
-gem 'meta-tags'
-gem 'postmark-rails'
-gem 'pg_search'
-gem 'aws-sdk', '~> 3'
 gem 'active_model_serializers'
+gem 'aws-sdk', '~> 3'
+gem 'cybersource_rest_client'
 gem 'jwt'
+gem 'meta-tags'
+gem 'money-rails'
+gem 'pg_search'
+gem 'postmark-rails'
 gem 'rubocop', '~> 1.30'
 gem 'stripe', '~> 10.0'
-gem 'money-rails'
+gem 'will_paginate'

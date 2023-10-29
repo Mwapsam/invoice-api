@@ -2,7 +2,7 @@ class Api::V1::CustomersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    customers = Customer.includes(:invoices)
+    customers = @current_user.customers.includes(:invoices)
     render json: customers, include: :invoices, status: :ok
   end
 

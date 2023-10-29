@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_170726) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_29_054520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.uuid "record_id", null: false
+    t.uuid "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "audit_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "action"
@@ -96,6 +124,46 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_170726) do
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
   end
 
+  create_table "people", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "email"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "state"
+    t.string "postal_code"
+    t.string "city"
+    t.string "place_of_birth"
+    t.string "account_type"
+    t.string "verification_method"
+    t.string "passport_or_national_id"
+    t.string "photo_id_front"
+    t.string "photo_id_back"
+    t.string "selfie_with_id"
+    t.string "kyc_status", default: "Pending"
+    t.text "kyc_status_note"
+    t.datetime "status_update_date"
+    t.date "identification_issue_date"
+    t.date "identification_expiry"
+    t.inet "kyc_submitted_ip_address"
+    t.inet "registered_ip_address"
+    t.boolean "us_citizen_tax_resident", default: false
+    t.boolean "accept_terms", default: false
+    t.boolean "agreed_to_data_usage", default: false
+    t.string "citizenship"
+    t.string "second_citizenship"
+    t.string "country_residence"
+    t.string "kyc_country"
+    t.datetime "kyc_review_date"
+    t.inet "reviewer_ip_address"
+    t.string "kyc_refused_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
   create_table "token_validates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "token"
     t.boolean "is_valid", default: false
@@ -114,8 +182,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_170726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "stripe_customer_id"
+    t.string "kyc_status", default: "pending"
+    t.string "stripe_payment_id"
+    t.index ["stripe_payment_id"], name: "index_users_on_stripe_payment_id", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audit_logs", "users"
   add_foreign_key "customers", "users"
   add_foreign_key "line_items", "orders"
@@ -123,5 +196,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_170726) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "customers"
   add_foreign_key "payments", "invoices"
+  add_foreign_key "people", "users"
   add_foreign_key "token_validates", "invoices"
 end

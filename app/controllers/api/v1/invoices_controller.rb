@@ -20,7 +20,6 @@ class Api::V1::InvoicesController < ApplicationController
   end
 
   def load_invoices
-    
     total_items = params[:total_item].to_i
     invoices = @current_user.invoices.includes(:customer, :order).limit(total_items)
     render json: invoices, include: %i[customer order line_items], status: :ok
